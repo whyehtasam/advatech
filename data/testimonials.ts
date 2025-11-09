@@ -1,0 +1,50 @@
+import { Testimonial } from "./types";
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    name: "Rajesh Kumar",
+    role: "BIM Engineer",
+    course: "Revit Architecture Training",
+    company: "L&T Construction",
+    photo: "/images/testimonials/rajesh.jpg",
+    quote: "The training was comprehensive and practical. The instructors were industry experts who shared real-world insights. I landed my dream job at L&T within 2 months of completing the course.",
+    rating: 5,
+    verified: true,
+  },
+  {
+    id: "2",
+    name: "Priya Sharma",
+    role: "Architectural Designer",
+    course: "BIM Project Management",
+    company: "Tata Projects",
+    photo: "/images/testimonials/priya.jpg",
+    video: "/videos/testimonials/priya.mp4",
+    quote: "The project-based learning approach helped me understand complex BIM workflows. The placement team was very supportive throughout the process.",
+    rating: 5,
+    verified: true,
+  },
+  {
+    id: "3",
+    name: "Amit Patel",
+    role: "CAD Designer",
+    course: "AutoCAD Professional Training",
+    company: "Godrej & Boyce",
+    photo: "/images/testimonials/amit.jpg",
+    quote: "Great course structure and excellent support. The hands-on projects were very helpful in building my portfolio.",
+    rating: 4,
+    verified: true,
+  },
+  {
+    id: "4",
+    name: "Sneha Mehta",
+    role: "BIM Coordinator",
+    course: "Revit Architecture Training",
+    company: "Shapoorji Pallonji",
+    photo: "/images/testimonials/sneha.jpg",
+    quote: "The course exceeded my expectations. I learned industry-standard practices and got placed in a top company with a great package.",
+    rating: 5,
+    verified: true,
+  },
+];
+
