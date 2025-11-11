@@ -23,7 +23,7 @@ export function Hero() {
           {/* Left: Text Content */}
           <BlurFade delay={0.1} className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
+              <h1 className="text-4xl md:!text-5xl lg:!text-6xl font-bold leading-tight text-balance">
                 Upskill. Build Projects.{" "}
                 <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Get Placed.
@@ -39,7 +39,7 @@ export function Hero() {
               <Button 
                 size="lg" 
                 asChild 
-                className="text-base px-8 py-6 h-auto shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+                className="text-base px-8 py-4 h-auto shadow-primary hover:shadow hover:scale-[1.02] transition-all duration-200"
               >
                 <Link href="/register">Enroll Now</Link>
               </Button>
@@ -47,7 +47,7 @@ export function Hero() {
                 size="lg" 
                 variant="outline" 
                 asChild 
-                className="text-base px-8 py-6 h-auto border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
+                className="text-base px-8 py-4 h-auto border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
               >
                 <Link href="/contact">Talk to Counselor</Link>
               </Button>

@@ -28,7 +28,7 @@
   --info: #3B82F6;
   --error: #DC2626;
   --error-light: #EF4444;
-  
+
   /* Gradient System */
   --gradient-primary: linear-gradient(135deg, #0E7AE6 0%, #FF7A3D 100%);
   --gradient-subtle: linear-gradient(135deg, rgba(14, 122, 230, 0.1) 0%, rgba(255, 122, 61, 0.1) 100%);
@@ -226,6 +226,22 @@
     opacity: 0;
     }
   }
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 body {
@@ -347,12 +363,12 @@ p, .body {
   body {
     @apply bg-background text-foreground;
   }
-  
+
   /* Accessibility: Focus visible styles */
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }
-  
+
   /* Accessibility: Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -364,7 +380,7 @@ p, .body {
       scroll-behavior: auto !important;
     }
   }
-  
+
   /* Accessibility: Screen reader only */
   .sr-only {
     position: absolute;
@@ -377,7 +393,7 @@ p, .body {
     white-space: nowrap;
     border-width: 0;
   }
-  
+
   .sr-only:focus {
     position: static;
     width: auto;
@@ -388,34 +404,34 @@ p, .body {
     clip: auto;
     white-space: normal;
   }
-  
+
   /* Typography Utilities */
   .text-balance {
     text-wrap: balance;
   }
-  
+
   /* Gradient Utilities */
   .gradient-primary {
     background: var(--gradient-primary);
   }
-  
+
   .gradient-subtle {
     background: var(--gradient-subtle);
   }
-  
+
   .gradient-hero {
     background: var(--gradient-hero);
   }
-  
+
   .gradient-card {
     background: var(--gradient-card);
   }
-  
+
   /* Shadow Utilities */
   .shadow-primary {
     box-shadow: var(--shadow-primary);
   }
-  
+
   .shadow-accent {
     box-shadow: var(--shadow-accent);
   }

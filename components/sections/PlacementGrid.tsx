@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { Marquee } from "@/components/ui/marquee";
 import { placements } from "@/data/placements";
 import { PlacementCard } from "@/components/features/PlacementCard";
 import { Building2 } from "lucide-react";
@@ -28,7 +29,7 @@ export function PlacementGrid() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/10 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/10 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -82,18 +83,20 @@ export function PlacementGrid() {
           </BlurFade>
         </div>
 
-        {/* Company Logos */}
+        {/* Company Logos - Marquee */}
         <BlurFade delay={0.2} className="mb-16">
-          <div className="flex items-center justify-center gap-8 lg:gap-12 flex-wrap py-8 px-6 bg-muted/30 rounded-2xl border border-border/50">
-            {companies.map((company, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground transition-all duration-300 grayscale hover:grayscale-0 hover:bg-background/50 group"
-              >
-                <Building2 className="h-6 w-6 group-hover:scale-110 transition-transform" />
-                <span className="font-semibold text-sm lg:text-base">{company}</span>
-              </div>
-            ))}
+          <div className="py-8 px-6 bg-muted/30 rounded-2xl border border-border/50 overflow-hidden">
+            <Marquee pauseOnHover className="[--duration:40s]">
+              {companies.map((company, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 px-6 py-3 mx-4 rounded-lg text-muted-foreground hover:text-foreground transition-all duration-300 grayscale hover:grayscale-0 hover:bg-background/50 group whitespace-nowrap"
+                >
+                  <Building2 className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                  <span className="font-semibold text-sm lg:text-base">{company}</span>
+                </div>
+              ))}
+            </Marquee>
           </div>
         </BlurFade>
 

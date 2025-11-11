@@ -23,7 +23,7 @@ const iconColors = [
 
 export function ServicePills() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -40,7 +40,7 @@ export function ServicePills() {
             return (
               <BlurFade key={service.id} delay={0.1 + index * 0.1}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm">
-                  <CardHeader className="pb-4">
+                  <CardHeader className="pb-0">
                     <div className={cn(
                       "w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110",
                       iconColor
@@ -54,7 +54,7 @@ export function ServicePills() {
                       {service.shortDescription}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-0">
+                  <CardContent className="-mt-5 pt-0">
                     {service.stats && service.stats.length > 0 && (
                       <div className="mt-6 pt-6 border-t border-border/50">
                         <div className="text-3xl font-bold text-primary mb-1">

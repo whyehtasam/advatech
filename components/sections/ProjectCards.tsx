@@ -25,7 +25,7 @@ export function ProjectCards() {
   const featuredProjects = projects;
   
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">

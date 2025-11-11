@@ -34,7 +34,7 @@ export function Steps() {
   ];
   
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -46,25 +46,25 @@ export function Steps() {
         </BlurFade>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
           {/* Connecting line for desktop */}
-          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-success/20" />
+          <div className="hidden md:block z-[-10] absolute top-1/2 -translate-y-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-success/20" />
           
           {steps.map((step, index) => {
             const Icon = step.icon;
             const iconColor = iconColors[index % iconColors.length];
             return (
               <BlurFade key={step.number} delay={0.1 + index * 0.1}>
-                <Card className="h-full text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm relative">
-                  <CardHeader className="pb-4">
+                <Card className="h-full bg-background text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20  backdrop-blur-sm relative">
+                  <CardHeader className="pb-">
                     <div className={cn(
                       "w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 relative z-10",
                       iconColor
                     )}>
                       <Icon className="h-10 w-10" />
                     </div>
-                    <div className="text-5xl font-bold text-primary/10 mb-3 group-hover:text-primary/20 transition-colors">
+                    <div className="text-5xl font-bold text-primary/60 mb-3 group-hover:text-primary/100 transition-colors">
                       {step.number}
                     </div>
-                    <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
+                    <CardTitle className="text-2xl  group-hover:text-primary transition-colors">
                       {step.title}
                     </CardTitle>
                   </CardHeader>
