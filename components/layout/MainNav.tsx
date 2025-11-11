@@ -110,38 +110,68 @@ export function MainNav() {
                   if (item.submenu) {
                     return (
                       <NavigationMenuItem key={item.label}>
-                        <NavigationMenuTrigger className="h-10 px-4 text-sm font-medium data-[state=open]:bg-primary/5 data-[state=open]:text-primary">
+                        <NavigationMenuTrigger className="h-10 px-4 text-sm font-medium data-[state=open]:bg-sky-500/20 data-[state=open]:text-white">
                           {item.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <div className="grid w-[600px] grid-cols-4 gap-6 p-6 bg-card border border-border/50 shadow-xl rounded-lg">
-                            {item.submenu.map((section, idx) => {
-                              const Icon = section.icon || Briefcase;
-                              return (
-                                <div key={idx} className="group/section">
-                                  <div className="flex items-center gap-2 mb-4">
-                                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover/section:bg-primary/20 transition-colors flex-shrink-0">
-                                      <Icon className="h-4 w-4 text-primary" />
+                          <div className="w-[calc(100vw-2rem)] sm:w-[700px]  p-6 lg:p-8 bg-card   rounded-lg">
+                            <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+                              {item.submenu.map((section, idx) => {
+                                const Icon = section.icon || Briefcase;
+                                return (
+                                  <div key={idx} className="group/section">
+                                    {/* Header with Icon */}
+                                    <div className="flex items-start gap-3 mb-4">
+                                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center group-hover/section:from-primary/20 group-hover/section:to-accent/20 transition-all duration-200 flex-shrink-0 shadow-sm">
+                                        <Icon className="h-5 w-5 text-primary group-hover/section:scale-110 transition-transform duration-200" />
+                                      </div>
+                                      <div className="flex-1">
+                                        <h4 className="font-semibold text-sm lg:text-base text-foreground leading-tight mb-1 group-hover/section:text-primary transition-colors whitespace-nowrap">
+                                          {section.title}
+                                        </h4>
+                                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                                          {section.description}
+                                        </p>
+                                      </div>
                                     </div>
-                                    <h4 className="font-semibold text-sm text-foreground leading-tight">{section.title}</h4>
+                                    {/* Menu Items */}
+                                    <ul className="space-y-1 mt-4">
+                                      {section.items.map((subItem) => (
+                                        <li key={subItem.label} className="text-left">
+                                          <NavigationMenuLink asChild>
+                                            <Link
+                                              href={subItem.href}
+                                              className="group/link !flex !items-center justify-start text-left gap-2 text-xs lg:text-sm text-muted-foreground hover:text-foreground transition-all duration-200 rounded-md px-0 py-1.5 lg:py-2 hover:bg-sky-500/20 hover:translate-x-1"
+                                            >
+                                              <div className="flex items-start justify-start text-start w-full gap-2 px-4">
+                                                {/* If subItem.icon is present, render it */}
+                                                {subItem.icon && (
+                                                  <span className="flex items-center justify-center mr-2">
+                                                    <subItem.icon className="h-4 w-4 text-primary" />
+                                                  </span>
+                                                )}
+                                                <span className="text-left w-full text-start">{subItem.label}</span>
+                                                <ChevronRight className="h-3 w-3 lg:h-3.5 lg:w-3.5 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                                              </div>
+                                            </Link>
+                                          </NavigationMenuLink>
+                                        </li>
+                                      ))}
+                                    </ul>
                                   </div>
-                                  <ul className="space-y-1.5">
-                                    {section.items.map((subItem) => (
-                                      <li key={subItem.label}>
-                                        <NavigationMenuLink asChild>
-                                          <Link
-                                            href={subItem.href}
-                                            className="block text-xs text-muted-foreground hover:text-foreground transition-colors duration-200 rounded px-2 py-1.5 hover:bg-accent/50"
-                                          >
-                                            {subItem.label}
-                                          </Link>
-                                        </NavigationMenuLink>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              );
-                            })}
+                                );
+                              })}
+                            </div>
+                            {/* Footer CTA */}
+                            <div className="mt-6 lg:mt-8 pt-4 lg:pt-6 border-t border-border/50">
+                              <Link
+                                href="/services"
+                                className="flex items-center justify-between group/cta text-xs lg:text-sm font-medium text-primary hover:text-primary/80 transition-colors px-2"
+                              >
+                                <span>View All Services</span>
+                                <ChevronRight className="h-3.5 w-3.5 lg:h-4 lg:w-4 group-hover/cta:translate-x-1 transition-transform" />
+                              </Link>
+                            </div>
                           </div>
                         </NavigationMenuContent>
                       </NavigationMenuItem>
