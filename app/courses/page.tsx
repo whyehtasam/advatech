@@ -75,7 +75,9 @@ export default function CoursesPage() {
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <BlurFade delay={0.1} className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Courses</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Courses</span>
+              </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Choose from our comprehensive training programs. Industry-aligned curriculum with hands-on projects.
               </p>

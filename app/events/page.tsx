@@ -44,7 +44,9 @@ export default function EventsPage() {
         <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Events & Batches</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Events & Batches</span>
+              </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Join our upcoming training batches, workshops, and events. Register now to secure your spot.
               </p>

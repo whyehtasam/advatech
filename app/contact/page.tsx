@@ -48,7 +48,9 @@ export default function ContactPage() {
         <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Contact Us</span>
+              </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Have questions? We're here to help. Get in touch with us and we'll respond as soon as possible.
               </p>

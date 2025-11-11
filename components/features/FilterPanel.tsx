@@ -39,23 +39,23 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
   };
 
   const filterContent = (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h3 className="font-semibold">Filters</h3>
-        <Button variant="ghost" size="sm" onClick={clearFilters}>
-          <X className="h-4 w-4 mr-2" />
+    <div className="space-y-5">
+      <div className="flex items-center justify-between pb-2 border-b">
+        <h3 className="text-sm font-medium text-foreground">Filters</h3>
+        <Button variant="ghost" size="sm" onClick={clearFilters} className="h-7 text-xs text-muted-foreground hover:text-foreground">
+          <X className="h-3.5 w-3.5 mr-1.5" />
           Clear
         </Button>
       </div>
 
       <div className="space-y-4">
-        <div>
-          <Label>Category</Label>
+        <div className="space-y-2">
+          <Label className="text-xs font-medium text-muted-foreground">Category</Label>
           <Select
             value={localFilters.category || "all"}
             onValueChange={(value) => handleFilterChange("category", value === "all" ? undefined : value)}
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-9">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
             <SelectContent>
@@ -67,13 +67,13 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div>
-          <Label>Mode</Label>
+        <div className="space-y-2">
+          <Label className="text-xs font-medium text-muted-foreground">Mode</Label>
           <Select
             value={localFilters.mode || "all"}
             onValueChange={(value) => handleFilterChange("mode", value === "all" ? undefined : value)}
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-9">
               <SelectValue placeholder="All Modes" />
             </SelectTrigger>
             <SelectContent>
@@ -85,13 +85,13 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div>
-          <Label>Level</Label>
+        <div className="space-y-2">
+          <Label className="text-xs font-medium text-muted-foreground">Level</Label>
           <Select
             value={localFilters.level || "all"}
             onValueChange={(value) => handleFilterChange("level", value === "all" ? undefined : value)}
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-9">
               <SelectValue placeholder="All Levels" />
             </SelectTrigger>
             <SelectContent>
@@ -103,10 +103,10 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div>
-          <Label>Fee Range</Label>
-          <div className="space-y-2 pt-2">
-            <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <div className="space-y-2">
+          <Label className="text-xs font-medium text-muted-foreground">Fee Range</Label>
+          <div className="space-y-3 pt-1">
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
               <span>₹{localFilters.minFee?.toLocaleString() || "0"}</span>
               <span>₹{localFilters.maxFee?.toLocaleString() || "100000"}</span>
             </div>
@@ -129,24 +129,21 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
   return (
     <>
       {/* Desktop Filter Panel */}
-      <Card className={cn("hidden lg:block", className)}>
-        <CardHeader>
-          <CardTitle>Filters</CardTitle>
-        </CardHeader>
-        <CardContent>{filterContent}</CardContent>
+      <Card className={cn("hidden lg:block border-border/50 shadow-sm", className)}>
+        <CardContent className="pt-6">{filterContent}</CardContent>
       </Card>
 
       {/* Mobile Filter Sheet */}
       <Sheet>
         <SheetTrigger asChild className="lg:hidden">
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" className="h-9">
             <Filter className="h-4 w-4 mr-2" />
             Filters
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-          <SheetHeader>
-            <SheetTitle>Filters</SheetTitle>
+          <SheetHeader className="pb-4 border-b">
+            <SheetTitle className="text-base font-medium">Filters</SheetTitle>
           </SheetHeader>
           <div className="mt-6">{filterContent}</div>
         </SheetContent>

@@ -73,7 +73,9 @@ export default function PlacementsPage() {
         <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Placement Highlights</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Placement Highlights</span>
+              </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Our students are placed in top companies with competitive packages. Build trust with proof.
               </p>
@@ -140,26 +142,26 @@ export default function PlacementsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Filter Panel */}
               <aside className="lg:col-span-1">
-                <Card>
-                  <CardHeader>
+                <Card className="border-border/50 shadow-sm">
+                  <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">Filters</CardTitle>
-                      <Button variant="ghost" size="sm" onClick={handleClearFilters}>
-                        <Filter className="h-4 w-4 mr-2" />
+                      <CardTitle className="text-base font-medium">Filters</CardTitle>
+                      <Button variant="ghost" size="sm" onClick={handleClearFilters} className="h-7 text-xs text-muted-foreground hover:text-foreground">
+                        <Filter className="h-3.5 w-3.5 mr-1.5" />
                         Clear
                       </Button>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">Year</label>
+                  <CardContent className="space-y-4 pt-0">
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium text-muted-foreground block">Year</label>
                       <Select
                         value={filters.year?.toString() || "all"}
                         onValueChange={(value) =>
                           handleFilterChange("year", value === "all" ? undefined : parseInt(value))
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="h-9">
                           <SelectValue placeholder="All Years" />
                         </SelectTrigger>
                         <SelectContent>
@@ -171,15 +173,15 @@ export default function PlacementsPage() {
                       </Select>
                     </div>
 
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">Course</label>
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium text-muted-foreground block">Course</label>
                       <Select
                         value={filters.course || "all"}
                         onValueChange={(value) =>
                           handleFilterChange("course", value === "all" ? undefined : value)
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="h-9">
                           <SelectValue placeholder="All Courses" />
                         </SelectTrigger>
                         <SelectContent>
@@ -191,10 +193,10 @@ export default function PlacementsPage() {
                       </Select>
                     </div>
 
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">Package Range</label>
-                      <div className="space-y-2 pt-2">
-                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium text-muted-foreground block">Package Range</label>
+                      <div className="space-y-3 pt-1">
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
                           <span>₹{(filters.minPackage || 0) / 1000}K</span>
                           <span>₹{(filters.maxPackage || 1000000) / 1000}K</span>
                         </div>
