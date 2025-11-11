@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,65 +9,116 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { projects } from "@/data/projects";
 import { ArrowRight } from "lucide-react";
 
+// Helper function to get appropriate Unsplash images for each project type
+function getProjectImage(projectId: string, projectType: string): string {
+  const imageMap: Record<string, string> = {
+    "1": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=80", // Residential complex
+    "2": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop&q=80", // Commercial office
+    "3": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&q=80", // Hospital
+    "4": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&h=800&fit=crop&q=80", // University campus
+  };
+  
+  return imageMap[projectId] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=80";
+}
+
 export function ProjectCards() {
+  const featuredProjects = projects;
+  
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <BlurFade delay={0.1} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <BlurFade delay={0.1} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+            Featured Projects
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Real-world projects completed by our students and team
           </p>
         </BlurFade>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <BlurFade key={project.id} delay={0.1 + index * 0.1}>
-              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
-                <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/20">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl">🏗️</div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Button variant="secondary" asChild>
-                      <Link href={`/projects/${project.id}`}>View Case Study</Link>
-                    </Button>
-                  </div>
-                </div>
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <Badge variant="outline">{project.type}</Badge>
-                  </div>
-                  <CardDescription>{project.shortDescription}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {featuredProjects.map((project, index) => {
+            const projectImage = getProjectImage(project.id, project.type);
+            return (
+              <BlurFade key={project.id} delay={0.1 + index * 0.1}>
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm overflow-hidden pt-0">
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
+                    <Image
+                      src={projectImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Button 
+                        variant="secondary" 
+                        asChild
+                        className="shadow-lg hover:scale-105 transition-transform"
+                      >
+                        <Link href={`/projects/${project.id}`}>View Case Study</Link>
+                      </Button>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <Badge 
+                        variant="outline" 
+                        className="bg-background/90 backdrop-blur-sm border-2"
+                      >
+                        {project.type}
                       </Badge>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.techStack.length - 3} more
-                      </Badge>
-                    )}
+                    </div>
                   </div>
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="text-sm text-primary font-medium inline-flex items-center gap-1 hover:underline"
-                  >
-                    View Details <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </CardContent>
-              </Card>
-            </BlurFade>
-          ))}
+                  <CardHeader className="pb-0">
+                    <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="leading-relaxed min-h-[3rem]">
+                      {project.shortDescription}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="-mt-8 pt-0">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.techStack.slice(0, 3).map((tech) => (
+                        <Badge 
+                          key={tech} 
+                          variant="secondary" 
+                          className="text-xs bg-muted/50 border border-border/50"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.techStack.length > 3 && (
+                        <Badge 
+                          variant="secondary" 
+                          className="text-xs bg-muted/50 border border-border/50"
+                        >
+                          +{project.techStack.length - 3} more
+                        </Badge>
+                      )}
+                    </div>
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-200 group/link"
+                    >
+                      View Details
+                      <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </BlurFade>
+            );
+          })}
         </div>
-        <div className="text-center mt-8">
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/projects">
-              View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+        <div className="text-center mt-12">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            asChild
+            className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
+          >
+            <Link href="/projects" className="inline-flex items-center gap-2">
+              View All Projects
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
         </div>

@@ -71,7 +71,7 @@ export default function CoursesPage() {
   return (
     <>
       <MainNav />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen" aria-label="Main content">
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <BlurFade delay={0.1} className="text-center mb-8">

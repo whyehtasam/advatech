@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <MainNav />
-      <main>
+      <main id="main-content" aria-label="Main content">
         <Hero />
         <ServicePills />
         <CourseCarousel />

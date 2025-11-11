@@ -11,12 +11,16 @@ import { Clock, Users, Star, ArrowRight } from "lucide-react";
 import { CourseCard } from "@/components/features/CourseCard";
 
 export function CourseCarousel() {
+  const popularCourses = courses.slice(0, 6); // Show top 6 courses
+  
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-muted/10 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <BlurFade delay={0.1} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Courses</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <BlurFade delay={0.1} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+            Popular Courses
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Industry-aligned training programs with hands-on projects and expert instructors
           </p>
         </BlurFade>
@@ -24,11 +28,12 @@ export function CourseCarousel() {
           opts={{
             align: "start",
             loop: true,
+            dragFree: true,
           }}
           className="w-full"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
-            {courses.map((course, index) => (
+            {popularCourses.map((course, index) => (
               <CarouselItem key={course.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                 <BlurFade delay={0.1 + index * 0.1}>
                   <CourseCard course={course} />
@@ -36,13 +41,19 @@ export function CourseCarousel() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex -left-12" />
+          <CarouselNext className="hidden md:flex -right-12" />
         </Carousel>
-        <div className="text-center mt-8">
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/courses">
-              View All Courses <ArrowRight className="ml-2 h-4 w-4" />
+        <div className="text-center mt-12">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            asChild
+            className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
+          >
+            <Link href="/courses" className="inline-flex items-center gap-2">
+              View All Courses
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
         </div>

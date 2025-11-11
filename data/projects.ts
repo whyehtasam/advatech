@@ -61,5 +61,25 @@ export const projects: Project[] = [
       "Improved facility management efficiency",
     ],
   },
+  {
+    id: "4",
+    title: "University Campus Masterplan",
+    description: "Developed a BIM-enabled masterplan for a university campus, coordinating buildings, infrastructure, and landscaping. Integrated GIS data and phased construction sequencing.",
+    shortDescription: "BIM-enabled campus masterplan with GIS & phasing",
+    thumbnail: "/images/projects/campus.jpg",
+    images: ["/images/projects/campus-1.jpg", "/images/projects/campus-2.jpg"],
+    type: "capstone",
+    techStack: ["Revit", "Infraworks", "Civil 3D", "ArcGIS"],
+    year: 2023,
+    team: [
+      { name: "Meera Joshi", role: "Masterplanner" },
+      { name: "Tarun Sethi", role: "Civil Engineer" },
+      { name: "Lakshmi Menon", role: "GIS Specialist" },
+    ],
+    outcomes: [
+      "Phased development proposal for 10+ buildings",
+      "Enhanced campus connectivity via GIS analysis",
+      "Streamlined approvals with detailed models and visuals",
+    ],
+  },
 ];
-

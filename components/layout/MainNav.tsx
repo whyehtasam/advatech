@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, GraduationCap, Users, School, Briefcase, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -24,6 +24,8 @@ const navItems = [
     submenu: [
       {
         title: "Training",
+        icon: GraduationCap,
+        description: "Professional training programs",
         items: [
           { label: "Courses", href: "/courses" },
           { label: "Corporate Training", href: "/services/training#corporate" },
@@ -32,6 +34,8 @@ const navItems = [
       },
       {
         title: "Recruitment",
+        icon: Users,
+        description: "Connect talent with companies",
         items: [
           { label: "Post a Job", href: "/services/recruitment#post-job" },
           { label: "View Jobs", href: "/jobs" },
@@ -40,6 +44,8 @@ const navItems = [
       },
       {
         title: "Education",
+        icon: School,
+        description: "Partnership programs",
         items: [
           { label: "View Partners", href: "/services/education#partners" },
           { label: "Become a Partner", href: "/contact" },
@@ -47,6 +53,8 @@ const navItems = [
       },
       {
         title: "Project Management",
+        icon: Briefcase,
+        description: "End-to-end project solutions",
         items: [
           { label: "View Portfolio", href: "/projects" },
           { label: "Request Quote", href: "/contact" },
@@ -76,50 +84,64 @@ export function MainNav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-200",
-        isScrolled ? "h-16" : "h-20"
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 transition-all duration-300 shadow-sm",
+        isScrolled && "shadow-md"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-full items-center justify-between">
+        <div className={cn("flex h-full items-center justify-between transition-all duration-300", isScrolled ? "h-16" : "h-20")}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">Advatech</span>
-              <span className="text-xs text-muted-foreground">HR & Training</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className={cn("flex flex-col transition-all duration-300", isScrolled ? "gap-0" : "gap-0.5")}>
+              <span className={cn("font-bold text-primary transition-all duration-300", isScrolled ? "text-lg" : "text-xl")}>
+                Advatech
+              </span>
+              <span className={cn("text-muted-foreground transition-all duration-300", isScrolled ? "text-[10px]" : "text-xs")}>
+                HR & Training
+              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="gap-1">
                 {navItems.map((item) => {
                   if (item.submenu) {
                     return (
                       <NavigationMenuItem key={item.label}>
-                        <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className="h-10 px-4 text-sm font-medium data-[state=open]:bg-primary/5 data-[state=open]:text-primary">
+                          {item.label}
+                        </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <div className="grid w-[600px] grid-cols-4 gap-4 p-6">
-                            {item.submenu.map((section, idx) => (
-                              <div key={idx} className="space-y-2">
-                                <h4 className="font-semibold text-sm">{section.title}</h4>
-                                <ul className="space-y-1">
-                                  {section.items.map((subItem) => (
-                                    <li key={subItem.label}>
-                                      <NavigationMenuLink asChild>
-                                        <Link
-                                          href={subItem.href}
-                                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                        >
-                                          {subItem.label}
-                                        </Link>
-                                      </NavigationMenuLink>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
+                          <div className="grid w-[600px] grid-cols-4 gap-6 p-6 bg-card border border-border/50 shadow-xl rounded-lg">
+                            {item.submenu.map((section, idx) => {
+                              const Icon = section.icon || Briefcase;
+                              return (
+                                <div key={idx} className="group/section">
+                                  <div className="flex items-center gap-2 mb-4">
+                                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover/section:bg-primary/20 transition-colors flex-shrink-0">
+                                      <Icon className="h-4 w-4 text-primary" />
+                                    </div>
+                                    <h4 className="font-semibold text-sm text-foreground leading-tight">{section.title}</h4>
+                                  </div>
+                                  <ul className="space-y-1.5">
+                                    {section.items.map((subItem) => (
+                                      <li key={subItem.label}>
+                                        <NavigationMenuLink asChild>
+                                          <Link
+                                            href={subItem.href}
+                                            className="block text-xs text-muted-foreground hover:text-foreground transition-colors duration-200 rounded px-2 py-1.5 hover:bg-accent/50"
+                                          >
+                                            {subItem.label}
+                                          </Link>
+                                        </NavigationMenuLink>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              );
+                            })}
                           </div>
                         </NavigationMenuContent>
                       </NavigationMenuItem>
@@ -130,7 +152,7 @@ export function MainNav() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={item.href}
-                          className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                          className="group relative inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full"
                         >
                           {item.label}
                         </Link>
@@ -144,13 +166,22 @@ export function MainNav() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="tel:+919876543210">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              asChild
+              className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
+            >
+              <Link href="tel:+919876543210" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="hidden xl:inline">Call</span>
               </Link>
             </Button>
-            <Button size="sm" asChild>
+            <Button 
+              size="sm" 
+              asChild
+              className="shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
+            >
               <Link href="/register">Register / Apply</Link>
             </Button>
           </div>
@@ -158,60 +189,88 @@ export function MainNav() {
           {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="h-10 w-10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-4 mt-8">
-                {navItems.map((item) => (
-                  <div key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="block py-2 text-lg font-medium"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                    {item.submenu && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.submenu.map((section) =>
-                          section.items.map((subItem) => (
-                            <Link
-                              key={subItem.label}
-                              href={subItem.href}
-                              className="block py-1 text-sm text-muted-foreground"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.label}
-                            </Link>
-                          ))
-                        )}
-                      </div>
-                    )}
+            <SheetContent side="right" className="w-[320px] sm:w-[400px] p-0">
+              <div className="flex flex-col h-full">
+                <div className="p-6 border-b">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex flex-col">
+                      <span className="text-xl font-bold text-primary">Advatech</span>
+                      <span className="text-xs text-muted-foreground">HR & Training</span>
+                    </div>
+                    <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+                      <X className="h-5 w-5" />
+                    </Button>
                   </div>
-                ))}
-                <div className="pt-4 border-t space-y-2">
-                  <Button className="w-full" asChild>
+                </div>
+                <nav className="flex-1 overflow-y-auto p-6 space-y-1">
+                  {navItems.map((item) => (
+                    <div key={item.label} className="space-y-1">
+                      <Link
+                        href={item.href}
+                        className="flex items-center justify-between py-3 px-4 text-base font-medium rounded-lg hover:bg-accent/50 transition-colors"
+                        onClick={() => !item.submenu && setMobileMenuOpen(false)}
+                      >
+                        <span>{item.label}</span>
+                        {item.submenu && (
+                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </Link>
+                      {item.submenu && (
+                        <div className="ml-4 mt-2 space-y-1 border-l-2 border-border/50 pl-4">
+                          {item.submenu.map((section) => {
+                            const Icon = section.icon || Briefcase;
+                            return (
+                              <div key={section.title} className="space-y-2 mb-4">
+                                <div className="flex items-center gap-2 mt-4 mb-2">
+                                  <Icon className="h-4 w-4 text-primary" />
+                                  <h4 className="font-semibold text-sm text-foreground">{section.title}</h4>
+                                </div>
+                                {section.items.map((subItem) => (
+                                  <Link
+                                    key={subItem.label}
+                                    href={subItem.href}
+                                    className="flex items-center gap-2 py-2 px-3 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent/30 transition-all duration-200"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    <ChevronRight className="h-3 w-3" />
+                                    <span>{subItem.label}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </nav>
+                <div className="p-6 border-t space-y-3 bg-muted/30">
+                  <Button className="w-full shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200" asChild>
                     <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
                       Register / Apply
                     </Link>
                   </Button>
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link href="tel:+919876543210" onClick={() => setMobileMenuOpen(false)}>
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call Us
-                    </Link>
-                  </Button>
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link href="https://wa.me/919876543210" onClick={() => setMobileMenuOpen(false)}>
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      WhatsApp
-                    </Link>
-                  </Button>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <Link href="tel:+919876543210" onClick={() => setMobileMenuOpen(false)}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <Link href="https://wa.me/919876543210" onClick={() => setMobileMenuOpen(false)}>
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        WhatsApp
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
