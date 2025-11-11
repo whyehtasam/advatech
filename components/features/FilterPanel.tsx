@@ -39,23 +39,23 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
   };
 
   const filterContent = (
-    <div className="space-y-5">
-      <div className="flex items-center justify-between pb-2 border-b">
+    <div className="space-y-4">
+      <div className="flex items-center justify-between pb-3 border-b border-border/50">
         <h3 className="text-sm font-medium text-foreground">Filters</h3>
-        <Button variant="ghost" size="sm" onClick={clearFilters} className="h-7 text-xs text-muted-foreground hover:text-foreground">
-          <X className="h-3.5 w-3.5 mr-1.5" />
+        <Button variant="ghost" size="sm" onClick={clearFilters} className="h-7 px-2 text-xs text-muted-foreground hover:text-foreground">
+          <X className="h-3.5 w-3.5 mr-1" />
           Clear
         </Button>
       </div>
 
       <div className="space-y-4">
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <Label className="text-xs font-medium text-muted-foreground">Category</Label>
           <Select
             value={localFilters.category || "all"}
             onValueChange={(value) => handleFilterChange("category", value === "all" ? undefined : value)}
           >
-            <SelectTrigger className="h-9">
+            <SelectTrigger className="h-9 text-sm">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
             <SelectContent>
@@ -67,13 +67,13 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <Label className="text-xs font-medium text-muted-foreground">Mode</Label>
           <Select
             value={localFilters.mode || "all"}
             onValueChange={(value) => handleFilterChange("mode", value === "all" ? undefined : value)}
           >
-            <SelectTrigger className="h-9">
+            <SelectTrigger className="h-9 text-sm">
               <SelectValue placeholder="All Modes" />
             </SelectTrigger>
             <SelectContent>
@@ -85,13 +85,13 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <Label className="text-xs font-medium text-muted-foreground">Level</Label>
           <Select
             value={localFilters.level || "all"}
             onValueChange={(value) => handleFilterChange("level", value === "all" ? undefined : value)}
           >
-            <SelectTrigger className="h-9">
+            <SelectTrigger className="h-9 text-sm">
               <SelectValue placeholder="All Levels" />
             </SelectTrigger>
             <SelectContent>
@@ -103,9 +103,9 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
           </Select>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <Label className="text-xs font-medium text-muted-foreground">Fee Range</Label>
-          <div className="space-y-3 pt-1">
+          <div className="space-y-2 pt-1">
             <div className="flex items-center justify-between text-xs text-muted-foreground">
               <span>₹{localFilters.minFee?.toLocaleString() || "0"}</span>
               <span>₹{localFilters.maxFee?.toLocaleString() || "100000"}</span>
@@ -130,22 +130,26 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
     <>
       {/* Desktop Filter Panel */}
       <Card className={cn("hidden lg:block border-border/50 shadow-sm", className)}>
-        <CardContent className="pt-6">{filterContent}</CardContent>
+        <CardContent className="pt-5 pb-5">{filterContent}</CardContent>
       </Card>
 
       {/* Mobile Filter Sheet */}
       <Sheet>
-        <SheetTrigger asChild className="lg:hidden">
-          <Button variant="outline" size="sm" className="h-9">
+        <SheetTrigger asChild className="lg:hidden w-full">
+          <Button variant="outline" size="sm" className="h-9 w-full justify-start">
             <Filter className="h-4 w-4 mr-2" />
             Filters
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-          <SheetHeader className="pb-4 border-b">
-            <SheetTitle className="text-base font-medium">Filters</SheetTitle>
-          </SheetHeader>
-          <div className="mt-6">{filterContent}</div>
+        <SheetContent side="left" className="w-[85vw] sm:w-[400px] p-0">
+          <div className="h-full flex flex-col">
+            <SheetHeader className="px-6 pt-6 pb-4 border-b border-border/50">
+              {/* <SheetTitle className="text-base font-medium">Filters</SheetTitle> */}
+            </SheetHeader>
+            <div className="flex-1 overflow-y-auto px-6 py-5">
+              {filterContent}
+            </div>
+          </div>
         </SheetContent>
       </Sheet>
     </>

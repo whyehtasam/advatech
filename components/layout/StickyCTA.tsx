@@ -11,8 +11,8 @@ export function StickyCTA() {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           <div className="flex-1">
-            <p className="text-sm font-medium mb-1">Ready to start?</p>
-            <p className="text-xs text-muted-foreground">Enroll now and get placed</p>
+            <p className="!text-sm font-medium mb-1">Ready to start?</p>
+            <p className="!text-xs text-muted-foreground">Enroll now and get placed</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" asChild>

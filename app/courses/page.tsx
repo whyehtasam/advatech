@@ -72,7 +72,7 @@ export default function CoursesPage() {
     <>
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
-        <section className="py-12 md:py-16 bg-muted/30">
+        <section className="pt-12 md:pt-16 pb-5 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <BlurFade delay={0.1} className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -84,24 +84,24 @@ export default function CoursesPage() {
             </BlurFade>
 
             {/* Search Bar */}
-            <BlurFade delay={0.2} className="max-w-2xl mx-auto mb-8">
+            <BlurFade delay={0.2} className="max-w-3xl mx-auto mb-6 md:mb-8">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search courses, skills or tools..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-10 h-12 text-base"
+                  className="pl-9 sm:pl-10 pr-9 sm:pr-10 h-10 sm:h-12 text-sm sm:text-base"
                 />
                 {searchQuery && (
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 sm:h-8 sm:w-8"
                     onClick={clearSearch}
                   >
-                    <X className="h-4 w-4" />
+                    <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </Button>
                 )}
               </div>
@@ -110,36 +110,36 @@ export default function CoursesPage() {
         </section>
 
         {/* Main Content */}
-        <section className="py-8">
+        <section className="py-6 md:py-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-8">
-              {/* Filter Panel */}
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+              {/* Desktop Filter Panel */}
               <aside className="hidden lg:block w-64 flex-shrink-0">
                 <div className="sticky top-24">
                   <FilterPanel filters={filters} onFiltersChange={setFilters} />
                 </div>
               </aside>
 
-              {/* Mobile Filter Button */}
-              <div className="lg:hidden mb-4">
+              {/* Mobile Filter Button - Above Cards */}
+              <div className="lg:hidden">
                 <FilterPanel filters={filters} onFiltersChange={setFilters} />
               </div>
 
               {/* Course Grid */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 {loading ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                     {[1, 2, 3, 4, 5, 6].map((i) => (
-                      <div key={i} className="space-y-4">
-                        <Skeleton className="h-48 w-full" />
-                        <Skeleton className="h-6 w-3/4" />
+                      <div key={i} className="space-y-3">
+                        <Skeleton className="h-48 w-full rounded-lg" />
+                        <Skeleton className="h-5 w-3/4" />
                         <Skeleton className="h-4 w-full" />
                         <Skeleton className="h-4 w-2/3" />
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                     {courses.map((course, index) => (
                       <BlurFade key={course.id} delay={0.1 + index * 0.05}>
                         <CourseCard course={course} />
@@ -150,8 +150,8 @@ export default function CoursesPage() {
 
                 {!loading && courses.length === 0 && (
                   <div className="text-center py-12">
-                    <p className="text-lg text-muted-foreground">No courses found.</p>
-                    <Button variant="outline" className="mt-4" onClick={() => {
+                    <p className="text-base text-muted-foreground mb-4">No courses found.</p>
+                    <Button variant="outline" size="sm" onClick={() => {
                       setSearchQuery("");
                       setFilters({});
                     }}>
