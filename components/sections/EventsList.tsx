@@ -25,7 +25,7 @@ export function EventsList() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {upcomingEvents.map((event, index) => (
             <BlurFade key={event.id} delay={0.1 + index * 0.1}>
-              <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm">
+              <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 md:backdrop-blur-sm transform-gpu will-change-transform">
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">

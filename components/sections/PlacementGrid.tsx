@@ -43,7 +43,7 @@ export function PlacementGrid() {
         {/* KPIs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           <BlurFade delay={0.1}>
-            <Card className="border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+            <Card className="border-2 hover:border-primary/20 bg-card/50 md:backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group transform-gpu will-change-transform">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <Building2 className="h-8 w-8 text-primary" />
@@ -56,7 +56,7 @@ export function PlacementGrid() {
             </Card>
           </BlurFade>
           <BlurFade delay={0.2}>
-            <Card className="border-2 hover:border-accent/20 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+            <Card className="border-2 hover:border-accent/20 bg-card/50 md:backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group transform-gpu will-change-transform">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                   <Building2 className="h-8 w-8 text-accent" />
@@ -69,7 +69,7 @@ export function PlacementGrid() {
             </Card>
           </BlurFade>
           <BlurFade delay={0.3}>
-            <Card className="border-2 hover:border-success/20 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+            <Card className="border-2 hover:border-success/20 bg-card/50 md:backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group transform-gpu will-change-transform">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 rounded-xl bg-success/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-success/20 transition-colors">
                   <Building2 className="h-8 w-8 text-success" />
@@ -92,7 +92,7 @@ export function PlacementGrid() {
                   key={index}
                   className="flex items-center gap-3 px-6 py-3 mx-4 rounded-lg text-muted-foreground hover:text-foreground transition-all duration-300 grayscale hover:grayscale-0 hover:bg-background/50 group whitespace-nowrap"
                 >
-                  <Building2 className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                  <Building2 className="h-6 w-6 group-hover:scale-110 transition-transform transform-gpu will-change-transform" />
                   <span className="font-semibold text-sm lg:text-base">{company}</span>
                 </div>
               ))}

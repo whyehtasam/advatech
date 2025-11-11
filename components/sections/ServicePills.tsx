@@ -39,10 +39,10 @@ export function ServicePills() {
             const iconColor = iconColors[index % iconColors.length];
             return (
               <BlurFade key={service.id} delay={0.1 + index * 0.1}>
-                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 md:backdrop-blur-sm transform-gpu will-change-transform">
                   <CardHeader className="pb-0">
                     <div className={cn(
-                      "w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110",
+                      "w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 transform-gpu will-change-transform",
                       iconColor
                     )}>
                       <Icon className="h-7 w-7" />

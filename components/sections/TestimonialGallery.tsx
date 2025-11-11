@@ -31,7 +31,7 @@ export function TestimonialGallery() {
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                 <BlurFade delay={0.1 + index * 0.1}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm">
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 md:backdrop-blur-sm transform-gpu will-change-transform">
                     <CardHeader className="pb-4">
                       <div className="flex items-start gap-4 mb-4">
                         <Avatar className="w-14 h-14 border-2 border-primary/20 group-hover:border-primary/40 transition-colors">

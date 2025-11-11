@@ -53,10 +53,10 @@ export function Steps() {
             const iconColor = iconColors[index % iconColors.length];
             return (
               <BlurFade key={step.number} delay={0.1 + index * 0.1}>
-                <Card className="h-full bg-background text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20  backdrop-blur-sm relative">
+                <Card className="h-full bg-background text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 md:backdrop-blur-sm relative transform-gpu will-change-transform">
                   <CardHeader className="pb-">
                     <div className={cn(
-                      "w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 relative z-10",
+                      "w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:scale-110 relative z-10 transform-gpu will-change-transform",
                       iconColor
                     )}>
                       <Icon className="h-10 w-10" />

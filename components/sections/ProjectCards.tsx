@@ -40,13 +40,13 @@ export function ProjectCards() {
             const projectImage = getProjectImage(project.id, project.type);
             return (
               <BlurFade key={project.id} delay={0.1 + index * 0.1}>
-                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm overflow-hidden pt-0">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border-2 hover:border-primary/20 bg-card/50 md:backdrop-blur-sm overflow-hidden pt-0 transform-gpu will-change-transform">
                   <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
                     <Image
                       src={projectImage}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 transform-gpu will-change-transform"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />

@@ -88,7 +88,7 @@ export default function PlacementsPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <BlurFade delay={0.1}>
-                <Card>
+                <Card className="pt-0">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -103,7 +103,7 @@ export default function PlacementsPage() {
                 </Card>
               </BlurFade>
               <BlurFade delay={0.2}>
-                <Card>
+                <Card className="pt-0">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -118,7 +118,7 @@ export default function PlacementsPage() {
                 </Card>
               </BlurFade>
               <BlurFade delay={0.3}>
-                <Card>
+                <Card className="pt-0">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">

@@ -93,7 +93,7 @@ export function Hero() {
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=900&fit=crop&q=80"
                 alt="Architecture training - Students learning CAD and BIM technologies"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105 transform-gpu will-change-transform"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

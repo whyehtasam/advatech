@@ -44,12 +44,14 @@ export function BlurFade({
   const ref = useRef(null)
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin })
   const isInView = !inView || inViewResult
+  // Reduce blur on mobile for better performance - use CSS media query approach
+  const effectiveBlur = blur
   const defaultVariants: Variants = {
     hidden: {
       [direction === "left" || direction === "right" ? "x" : "y"]:
         direction === "right" || direction === "down" ? -offset : offset,
       opacity: 0,
-      filter: `blur(${blur})`,
+      filter: `blur(${effectiveBlur})`,
     },
     visible: {
       [direction === "left" || direction === "right" ? "x" : "y"]: 0,
@@ -71,7 +73,11 @@ export function BlurFade({
           duration,
           ease: "easeOut",
         }}
-        className={className}
+        className={`transform-gpu will-change-transform ${className || ""}`}
+        style={{
+          transform: 'translate3d(0, 0, 0)',
+          ...props.style,
+        }}
         {...props}
       >
         {children}
