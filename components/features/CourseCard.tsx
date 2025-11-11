@@ -25,7 +25,7 @@ const courseImages = [
 ];
 
 export function CourseCard({ course, className }: CourseCardProps) {
-  const imageIndex = (course.id - 1) % courseImages.length;
+  const imageIndex = (parseInt(course.id) - 1) % courseImages.length;
   const courseImage = courseImages[imageIndex];
   
   return (

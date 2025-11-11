@@ -145,13 +145,13 @@ export default function EventsPage() {
                             <div className="flex items-center justify-between mb-3">
                               <span className="text-sm font-medium">Seats Available</span>
                               <span className="text-sm text-muted-foreground">
-                                {event.seats - event.registered} seats left
+                                {(event.seats || 0) - (event.registered || 0)} seats left
                               </span>
                             </div>
                             <div className="w-full bg-muted rounded-full h-2 mb-3">
                               <div
                                 className="bg-primary h-2 rounded-full transition-all"
-                                style={{ width: `${(event.registered / event.seats) * 100}%` }}
+                                style={{ width: `${((event.registered || 0) / (event.seats || 1)) * 100}%` }}
                               />
                             </div>
                           </div>

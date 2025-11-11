@@ -137,22 +137,14 @@ export function MainNav() {
                                     {/* Menu Items */}
                                     <ul className="space-y-1 mt-4">
                                       {section.items.map((subItem) => (
-                                        <li key={subItem.label} className="text-left">
+                                        <li key={subItem.label}>
                                           <NavigationMenuLink asChild>
                                             <Link
                                               href={subItem.href}
-                                              className="group/link !flex !items-center justify-start text-left gap-2 text-xs lg:text-sm text-muted-foreground hover:text-foreground transition-all duration-200 rounded-md px-0 py-1.5 lg:py-2 hover:bg-sky-500/20 hover:translate-x-1"
+                                              className="group/link flex items-center gap-2 text-xs lg:text-sm text-muted-foreground hover:text-foreground transition-all duration-200 rounded-md px-4 py-1.5 lg:py-2 hover:bg-sky-500/20 hover:translate-x-1"
                                             >
-                                              <div className="flex items-start justify-start text-start w-full gap-2 px-4">
-                                                {/* If subItem.icon is present, render it */}
-                                                {subItem.icon && (
-                                                  <span className="flex items-center justify-center mr-2">
-                                                    <subItem.icon className="h-4 w-4 text-primary" />
-                                                  </span>
-                                                )}
-                                                <span className="text-left w-full text-start">{subItem.label}</span>
-                                                <ChevronRight className="h-3 w-3 lg:h-3.5 lg:w-3.5 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all duration-200 flex-shrink-0" />
-                                              </div>
+                                              <ChevronRight className="h-3 w-3 lg:h-3.5 lg:w-3.5 opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                                              <span className="text-left flex-1">{subItem.label}</span>
                                             </Link>
                                           </NavigationMenuLink>
                                         </li>
