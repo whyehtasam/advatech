@@ -56,7 +56,7 @@ export const services: Service[] = [
   {
     id: "3",
     slug: "education",
-    title: "Education Tie-ups",
+    title: "Education & College Tie-ups",
     description: "Partnership programs with colleges and universities to provide industry-relevant training and certification programs.",
     shortDescription: "Partnership programs with educational institutions",
     icon: "School",
