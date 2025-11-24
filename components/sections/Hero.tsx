@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden gradient-hero">
+    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden ">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 animate-gradient bg-[length:200%_200%]" />
+     
 
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" style={{
