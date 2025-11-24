@@ -12,12 +12,12 @@ export function Hero() {
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden gradient-hero">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 animate-gradient bg-[length:200%_200%]" />
-      
+
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }} />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
@@ -30,29 +30,29 @@ export function Hero() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Professional training in Architecture, CAD, BIM, and related technologies. 
+                Professional training in Architecture, CAD, BIM, and related technologies.
                 Industry-aligned curriculum with hands-on projects and expert instructors.
               </p>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                asChild 
+              <Button
+                size="lg"
+                asChild
                 className="text-base px-8 py-4 h-auto shadow-primary hover:shadow hover:scale-[1.02] transition-all duration-200"
               >
                 <Link href="/register">Enroll Now</Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild 
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
                 className="text-base px-8 py-4 h-auto border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
               >
                 <Link href="/contact">Talk to Counselor</Link>
               </Button>
             </div>
-            
+
             {/* Stats with Icons */}
             <div className="flex items-center gap-8 pt-4 border-t border-border/50">
               <div className="flex items-center gap-3">
@@ -97,10 +97,10 @@ export function Hero() {
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              
+
               {/* Gradient overlay for better text contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
-              
+
               {/* Decorative elements */}
               <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center">
                 <div className="w-12 h-12 rounded-full bg-primary/30" />

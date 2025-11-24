@@ -17,15 +17,15 @@ function getProjectImage(projectId: string, projectType: string): string {
     "3": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&q=80", // Hospital
     "4": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&h=800&fit=crop&q=80", // University campus
   };
-  
+
   return imageMap[projectId] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=80";
 }
 
 export function ProjectCards() {
   const featuredProjects = projects;
-  
+
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-blue-50/50 via-blue-100/30 to-blue-50/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -51,8 +51,8 @@ export function ProjectCards() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button 
-                        variant="secondary" 
+                      <Button
+                        variant="secondary"
                         asChild
                         className="shadow-lg hover:scale-105 transition-transform"
                       >
@@ -60,8 +60,8 @@ export function ProjectCards() {
                       </Button>
                     </div>
                     <div className="absolute top-4 right-4">
-                      <Badge 
-                        variant="outline" 
+                      <Badge
+                        variant="outline"
                         className="bg-background/90 backdrop-blur-sm border-2"
                       >
                         {project.type}
@@ -79,17 +79,17 @@ export function ProjectCards() {
                   <CardContent className="-mt-8 pt-0">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.techStack.slice(0, 3).map((tech) => (
-                        <Badge 
-                          key={tech} 
-                          variant="secondary" 
+                        <Badge
+                          key={tech}
+                          variant="secondary"
                           className="text-xs bg-muted/50 border border-border/50"
                         >
                           {tech}
                         </Badge>
                       ))}
                       {project.techStack.length > 3 && (
-                        <Badge 
-                          variant="secondary" 
+                        <Badge
+                          variant="secondary"
                           className="text-xs bg-muted/50 border border-border/50"
                         >
                           +{project.techStack.length - 3} more
@@ -110,9 +110,9 @@ export function ProjectCards() {
           })}
         </div>
         <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
-            size="lg" 
+          <Button
+            variant="outline"
+            size="lg"
             asChild
             className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
           >

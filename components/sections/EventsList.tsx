@@ -10,9 +10,9 @@ import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
 
 export function EventsList() {
   const upcomingEvents = events.slice(0, 4);
-  
+
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-blue-50/50 via-blue-100/30 to-blue-50/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.1} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -31,8 +31,8 @@ export function EventsList() {
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
                       {event.title}
                     </CardTitle>
-                    <Badge 
-                      variant="outline" 
+                    <Badge
+                      variant="outline"
                       className="border-2 bg-background/90 backdrop-blur-sm"
                     >
                       {event.type}
@@ -49,11 +49,11 @@ export function EventsList() {
                         <Calendar className="h-4 w-4 text-primary" />
                       </div>
                       <span className="font-medium text-foreground">
-                        {new Date(event.date).toLocaleDateString("en-US", { 
-                          weekday: "long", 
-                          year: "numeric", 
-                          month: "long", 
-                          day: "numeric" 
+                        {new Date(event.date).toLocaleDateString("en-US", {
+                          weekday: "long",
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric"
                         })}
                       </span>
                     </div>
@@ -84,8 +84,8 @@ export function EventsList() {
                       </div>
                     )}
                   </div>
-                  <Button 
-                    className="w-full shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200" 
+                  <Button
+                    className="w-full shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
                     asChild
                   >
                     <Link href={`/events/${event.id}`} className="inline-flex items-center justify-center gap-2">
@@ -99,9 +99,9 @@ export function EventsList() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
-            size="lg" 
+          <Button
+            variant="outline"
+            size="lg"
             asChild
             className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
           >
