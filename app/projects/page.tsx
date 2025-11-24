@@ -23,7 +23,7 @@ function getProjectImage(projectId: string, projectType: string): string {
     "3": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop&q=80", // Hospital
     "4": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop&q=80", // University campus
   };
-  
+
   return imageMap[projectId] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&q=80";
 }
 
@@ -57,13 +57,26 @@ export default function ProjectsPage() {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
         {/* Hero Section */}
-        <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Hero Section */}
+        <section className="relative  h-[450px] flex items-center justify-center overflow-hidden ">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1625722662233-297060231b85"
+              alt="Projects Banner"
+              fill
+              className="object-cover blur-[2px] object-bottom"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Projects</span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                Our <span className="text-blue-400">Projects</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-gray-200 max-w-2xl mx-auto">
                 Explore our portfolio of successful projects. From capstone projects to industry implementations.
               </p>
             </BlurFade>

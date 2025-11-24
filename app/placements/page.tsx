@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { MainNav } from "@/components/layout/MainNav";
 import { Footer } from "@/components/layout/Footer";
 import { StickyCTA } from "@/components/layout/StickyCTA";
@@ -70,63 +71,73 @@ export default function PlacementsPage() {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
         {/* Hero Section */}
-        <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Placement Highlights</span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our students are placed in top companies with competitive packages. Build trust with proof.
-              </p>
-            </BlurFade>
+        {/* Hero & KPIs Section */}
+        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://img.freepik.com/free-photo/elegant-man-using-laptop-steps_23-2147932209.jpg?w=2000"
+              alt="Placement Banner"
+              fill
+              className="object-cover blur-[2px] object-top"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
-        </section>
 
-        {/* KPIs Section */}
-        <section className="py-8 border-b">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <BlurFade delay={0.1}>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                  Placement <span className="text-blue-400">Highlights</span>
+                </h1>
+                <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+                  Our students are placed in top companies with competitive packages. Build trust with proof.
+                </p>
+              </BlurFade>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <BlurFade delay={0.1}>
-                <Card className="pt-0">
+                <Card className="pt-0 bg-white/10 backdrop-blur-md border-white/20 shadow-xl hover:scale-105 hover:bg-white/20 hover:border-white/40 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Users className="h-6 w-6 text-primary" />
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                        <Users className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-3xl font-bold text-primary">{totalPlacements.toLocaleString()}+</div>
-                        <div className="text-sm text-muted-foreground">Students Placed</div>
+                        <div className="text-3xl font-bold text-white">{totalPlacements.toLocaleString()}+</div>
+                        <div className="text-sm text-gray-200">Students Placed</div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </BlurFade>
               <BlurFade delay={0.2}>
-                <Card className="pt-0">
+                <Card className="pt-0 bg-white/10 backdrop-blur-md border-white/20 shadow-xl hover:scale-105 hover:bg-white/20 hover:border-white/40 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <TrendingUp className="h-6 w-6 text-primary" />
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                        <TrendingUp className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-3xl font-bold text-primary">₹{avgPackage}K</div>
-                        <div className="text-sm text-muted-foreground">Average Package</div>
+                        <div className="text-3xl font-bold text-white">₹{avgPackage}K</div>
+                        <div className="text-sm text-gray-200">Average Package</div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </BlurFade>
               <BlurFade delay={0.3}>
-                <Card className="pt-0">
+                <Card className="pt-0 bg-white/10 backdrop-blur-md border-white/20 shadow-xl hover:scale-105 hover:bg-white/20 hover:border-white/40 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Building2 className="h-6 w-6 text-primary" />
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                        <Building2 className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-3xl font-bold text-primary">{topRecruitersCount}+</div>
-                        <div className="text-sm text-muted-foreground">Top Recruiters</div>
+                        <div className="text-3xl font-bold text-white">{topRecruitersCount}+</div>
+                        <div className="text-sm text-gray-200">Top Recruiters</div>
                       </div>
                     </div>
                   </CardContent>

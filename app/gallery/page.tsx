@@ -30,8 +30,8 @@ export default function GalleryPage() {
     if (selectedFilter === "all") return galleryImages;
     return galleryImages.filter((image) => {
       const categoryMatch = image.category === selectedFilter;
-      const typeMatch = image.type === selectedFilter.toLowerCase() || 
-                       (image.type.charAt(0).toUpperCase() + image.type.slice(1)) === selectedFilter;
+      const typeMatch = image.type === selectedFilter.toLowerCase() ||
+        (image.type.charAt(0).toUpperCase() + image.type.slice(1)) === selectedFilter;
       return categoryMatch || typeMatch;
     });
   }, [selectedFilter]);
@@ -59,13 +59,26 @@ export default function GalleryPage() {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
         {/* Hero Section */}
-        <section className="pt-12 pb-5 md:pt-16 md:pb-8 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <BlurFade delay={0.1} className="text-center mb-6 md:mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gallery</span>
+        {/* Hero Section */}
+        <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://img.freepik.com/premium-psd/photo-collage-template-picture-walls-image-grids-photography-mosaics-v5-photoshop-psd_351449-2657.jpg?w=2000"
+              alt="Gallery Banner"
+              fill
+              className="object-cover blur-[2px]"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <BlurFade delay={0.1} className="mb-6 md:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-white">
+                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gallery</span>
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto">
                 Explore our training sessions, projects, events, and student achievements
               </p>
             </BlurFade>
@@ -122,7 +135,7 @@ export default function GalleryPage() {
                 {filteredImages.map((image, index) => (
                   <BlurFade key={image.id} delay={0.1 + index * 0.05}>
                     <Card
-                      className="group pt-0 cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm"
+                      className="group pt-0 cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm rounded-sm"
                       onClick={() => handleImageClick(index)}
                     >
                       <div className="relative aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
@@ -161,7 +174,7 @@ export default function GalleryPage() {
                           </Badge>
                         </div>
                       </div>
-                      <div className="p-4">
+                      <div className="px-4">
                         <h3 className="font-semibold !text-sm sm:!text-base mb-1 line-clamp-1">{image.title}</h3>
                         {image.description && (
                           <p className="!text-xs sm:!text-sm text-muted-foreground line-clamp-1">{image.description}</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import { MainNav } from "@/components/layout/MainNav";
 import { Footer } from "@/components/layout/Footer";
 import { StickyCTA } from "@/components/layout/StickyCTA";
@@ -72,36 +73,48 @@ export default function CoursesPage() {
     <>
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
-        <section className="pt-12 md:pt-16 pb-5 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <BlurFade delay={0.1} className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Courses</span>
+        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Courses Banner"
+              fill
+              className="object-cover blur-[2px]"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+            <BlurFade delay={0.1} className="text-center mb-10">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                Our <span className="text-blue-400">Courses</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-50 max-w-2xl mx-auto">
                 Choose from our comprehensive training programs. Industry-aligned curriculum with hands-on projects.
               </p>
             </BlurFade>
 
             {/* Search Bar */}
-            <BlurFade delay={0.2} className="max-w-3xl mx-auto mb-6 md:mb-8">
+            <BlurFade delay={0.2} className="max-w-2xl mx-auto">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-black" />
                 <Input
                   type="text"
                   placeholder="Search courses, skills or tools..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 sm:pl-10 pr-9 sm:pr-10 h-10 sm:h-12 text-sm sm:text-base"
+                  className="pl-12 pr-12 h-14 text-base shadow-lg border-0 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
                 />
                 {searchQuery && (
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 sm:h-8 sm:w-8"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 hover:bg-transparent"
                     onClick={clearSearch}
                   >
-                    <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <X className="h-5 w-5 text-muted-foreground" />
                   </Button>
                 )}
               </div>
@@ -170,3 +183,4 @@ export default function CoursesPage() {
   );
 }
 
+  

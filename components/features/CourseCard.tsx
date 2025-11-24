@@ -62,7 +62,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
           </Badge>
         </div>
       </div>
-      <CardHeader className="pb-4">
+      <CardHeader className="pb-">
         <CardTitle className="text-xl mb-3 line-clamp-2 group-hover:text-primary transition-colors">
           {course.title}
         </CardTitle>
@@ -97,7 +97,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
               )}
             </div>
           </div>
-          <div className="flex gap-3 pt-2">
+          <div className="flex gap-3 pt">
             <Button 
               variant="outline" 
               className="flex-1 border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200" 

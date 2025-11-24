@@ -30,20 +30,32 @@ export function CourseDetailContent({ course }: CourseDetailProps) {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
         {/* Hero Banner */}
-        <section className="pt-12 pb-8 md:pt-16 md:pb-12 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Course Banner"
+              fill
+              className="object-cover blur-[2px]"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
             <BlurFade delay={0.1}>
               <div className="max-w-4xl">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {course.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
+                    <Badge key={tag} variant="secondary" className="text-xs bg-white/10 text-white hover:bg-white/20 border-0">
                       {tag}
                     </Badge>
                   ))}
                 </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight">{course.title}</h1>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-5 md:mb-6 leading-relaxed">{course.description}</p>
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground mb-5 md:mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight text-white">{course.title}</h1>
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-5 md:mb-6 leading-relaxed">{course.description}</p>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-300 mb-5 md:mb-6">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
                     <span>{course.duration}</span>
@@ -54,7 +66,7 @@ export function CourseDetailContent({ course }: CourseDetailProps) {
                   </div>
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400 flex-shrink-0" />
-                    <span className="font-medium text-foreground">{course.rating}</span>
+                    <span className="font-medium text-white">{course.rating}</span>
                     <span>({course.totalReviews})</span>
                   </div>
                   <div className="flex items-center gap-1.5 sm:gap-2">
@@ -65,9 +77,9 @@ export function CourseDetailContent({ course }: CourseDetailProps) {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex-1">
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">₹{course.fee.toLocaleString()}</div>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-1">₹{course.fee.toLocaleString()}</div>
                     {course.originalFee && (
-                      <div className="text-xs sm:text-sm text-muted-foreground line-through">
+                      <div className="text-xs sm:text-sm text-gray-400 line-through">
                         ₹{course.originalFee.toLocaleString()}
                       </div>
                     )}
