@@ -60,8 +60,7 @@ export function FilterPanel({ filters, onFiltersChange, className }: FilterPanel
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Categories</SelectItem>
-              <SelectItem value="Architecture">Architecture</SelectItem>
-              <SelectItem value="CAD">CAD</SelectItem>
+              <SelectItem value="AutoCAD">AutoCAD</SelectItem>
               <SelectItem value="BIM">BIM</SelectItem>
             </SelectContent>
           </Select>

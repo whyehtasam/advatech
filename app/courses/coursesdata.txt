@@ -1,0 +1,249 @@
+AutoCAD Courses:
+• AutoCAD Civil
+o Introduction of AutoCAD
+o Drafting and modification commands
+o Survey data introduction
+o Layer & property management
+o Floor Plan / Elevation and section
+o Residential & Commercial Building Plans
+o Documentation & Annotation
+o structural detailing (column, beam, footing etc.)
+o Shop drawing of structural elements
+ 
+
+• AutoCAD HVAC
+o HVAC Fundamentals
+o Psychometrics chart
+o Heat Load Calculation with rule of thumb
+o Codes & Standards: ASHRAE, SMACNA, ISHRAE guidelines
+o Introduction of AutoCAD
+o Drafting and modification commands
+o Layer & property management
+o Floor Plan / Elevation and section
+o Documentation & Annotation
+o  Shop drawings, coordination drawings
+ 
+
+ 
+
+• AutoCAD Electrical
+o Electrical Fundamentals
+o Drawing Standards & Symbols
+o Types of Drawings
+o Building Services
+o Introduction of AutoCAD
+o Drafting and modification commands
+o Layer & property management
+o Floor Plan / Elevation and section
+o Lighting layouts, power layouts, 
+o conduit/cable tray layouts, earthing, 
+o lightning protection, CCTV, data, and fire alarm systems. 
+o Documentation & Annotation
+o  Shop drawings, coordination drawings
+ 
+
+ 
+
+ 
+
+• AutoCAD Plumbing and Fire fighting
+o Introduction of IPC, UPC and NBC & NFPA
+o Hot water system
+o Cold water system
+o Drainage and sanitation
+o Storm water drainage introduction
+o Fire science basics
+o Active Vs. Passive System
+o Introduction of AutoCAD
+o Drafting and modification commands
+o Layer & property management
+o Floor Plan / Elevation and section
+o Sprinkler and Standpipe System Layout
+o Fire Alarm & Detection layouts
+o Documentation & Annotation
+ 
+
+ 
+
+BIM Professional Courses
+• BIM Architecture
+o Fundamentals and Introduction to BIM
+o Fundamentals of Architecture
+o Drawing and legends reading
+o 3D modeling of residential and commercial buildings
+o Documentations & Annotation
+o Advanced family creation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Site Topology (Toposolids)
+o Introduction of Mass modeling concepts
+o Visualization Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+• Software used
+o AutoCAD
+o Revit
+o Navisworks
+o Enscape
+o BIM 360
+ 
+
+ 
+
+ 
+
+ 
+
+• BIM Structure
+o Fundamentals and Introduction to BIM
+o Fundaments of Structure
+o Drawing and legends reading
+o 3D modeling of RCC structure
+o Detailing of Structural elements
+o Steel structure Introduction
+o Advanced family creation
+o Documentations & Annotation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+• Software used
+o AutoCAD
+o Revit
+o Navisworks
+o BIM 360
+ 
+
+ 
+
+ 
+
+
+
+• BIM MEPF
+o Fundamentals and Introduction to BIM
+o Fundaments of MEPF
+o Drawing and legends reading
+o Introduction of Rule of Thumb calculations
+o 3D modeling of MEPF System
+▪ Mechanical (HVAC): Creating HVAC networks, duct design, air terminals, equipment layout, sizing.
+▪ Electrical:  Lighting layouts, power distribution, circuiting, panel schedules, fire alarms.
+▪ Plumbing & Fire Protection: Water supply, drainage, fire suppression systems.
+o Advanced family creation
+o Documentations & Annotation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+• Software used
+o AutoCAD
+o Revit
+o Navisworks
+o BIM 360
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+• BIM HVAC
+o Fundamentals and Introduction to BIM
+o HVAC Fundamentals
+o Drawing and legends reading
+o Psychometrics chart
+o Heat Load Calculation with rule of thumb
+o Codes & Standards: ASHRAE, SMACNA, ISHRAE guidelines
+o Spaces and Zones: Creating and analyzing spaces and zones for energy analysis and load calculations within the BIM model. 
+o Placing Equipment: Adding mechanical equipment and air terminals.
+o Duct and Pipe Routing: Creating supply, return, and exhaust air duct systems, as well as piping networks.
+o System Definition: Defining and connecting components into logical systems (e.g., supply air system, chilled water system).
+o valve package for AHU (Air Handling Unit), FCU (Fan Coil Unit), and Chiller Pumps is a pre-assembled set of valves and fittings for chilled water systems
+o Advanced family creation
+o Documentations & Annotation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+
+
+• BIM Electrical
+o Fundamentals and Introduction to BIM
+o Electrical Fundamentals
+o Drawing and legends reading
+o Electrical Design Basics: Power distribution, lighting design, circuiting, load calculations, safety standards.
+o Spaces and Zones: Creating and analyzing spaces and zones for energy analysis and load calculations within the BIM model. 
+o Placing Electrical Equipment: Adding electrical and components.
+o Creating electrical systems, placing components, routing conduits/cable trays, creating schedules.
+o Power distribution system and voltage definition.
+o Electrical panel schedule
+o Electrical Analysis tool introduction
+o Advanced family creation
+o Documentations & Annotation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+ 
+
+
+
+• BIM Plumbing and Firefighting
+o Fundamentals and Introduction to BIM
+o Introduction of IPC, UPC and NBC & NFPA
+o Drawing and legends reading
+o Water Supply Systems:
+▪ Cold and potable water systems.
+▪ Hot water supply systems.
+▪ Piping fundamentals, materials, and sizing methods.
+▪ Hydraulics and pump selection.
+o Drainage Systems:
+▪ Sanitary drainage and waste systems (DWV).
+▪ Storm water management and drainage systems.
+▪ Manhole sizing and layout design.
+o Water-Based Systems:
+▪ Automatic sprinkler systems (wet, dry, pre-action, deluge types). Design using the pipe schedule or hydraulic calculation introduction.
+▪ Standpipe and hose systems (NFPA 14).
+▪ Fire pumps (main, jockey, diesel) classification and selection.
+▪ Fire hydrant systems and tank sizing.
+o Adding plumbing fixtures, equipment, and piping networks.
+o Creating plumbing systems (e.g., sanitary, domestic cold water). 
+o Other Systems:
+▪ Fire alarm system concepts.
+▪ Special hazard systems (e.g., FM200, clean agent systems).
+o Modeling in BIM:
+▪ Placing sprinklers and fire fighting equipment.
+▪ Creating pipe layouts and routing preferences.
+▪ Hydraulic calculations and pipe sizing within the software/integrated tools. 
+o Advanced family creation
+o Documentations & Annotation
+o LOD 100 to 500 concepts
+o Phasing and design options
+o Rendering & walkthrough creations
+o Coordination & Clash Detection
+o 4D & 5D BIM Simulation
+o Introduction of Worksharing and Collaboration
+o Fire Dynamics & Classification: Principles of fire and types of fire protection systems (active and passive).
+ 
+
+ 
+
+ 
