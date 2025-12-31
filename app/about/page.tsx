@@ -11,6 +11,7 @@ import { team } from "@/data/team";
 import { TeamMember } from "@/data/types";
 import { Linkedin, Mail, Award, Users, Target, TrendingUp } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -19,20 +20,25 @@ export default function AboutPage() {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Main content">
         {/* Hero Section */}
-        <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <BlurFade delay={0.1} className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=800&fit=crop&auto=format&q=80"
+              alt="About Banner"
+              fill
+              className="object-cover blur-[2px]"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <BlurFade delay={0.1}>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                 About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Advatech</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-6">
-                With over 20 years of experience in the construction and architecture industry, Advatech was founded
-                to bridge the gap between industry requirements and academic training.
-              </p>
-              <p className="text-muted-foreground">
-                We provide comprehensive training programs in Architecture, CAD, BIM, and related technologies.
-                Our industry-aligned curriculum, hands-on projects, and expert instructors help students build
-                successful careers in the construction and architecture industry.
+              <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+                With over 20 years of experience in the construction and architecture industry, Advatech was founded to bridge the gap between industry requirements and academic training.
               </p>
             </BlurFade>
           </div>

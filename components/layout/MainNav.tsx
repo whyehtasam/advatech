@@ -26,6 +26,7 @@ const navItems = [
         title: "Training",
         icon: GraduationCap,
         description: "Professional training programs",
+        href: "/services/training",
         items: [
           { label: "Courses", href: "/courses" },
           { label: "Corporate Training", href: "/services/training#corporate" },
@@ -36,6 +37,7 @@ const navItems = [
         title: "Recruitment",
         icon: Users,
         description: "Connect talent with companies",
+        href: "/services/recruitment",
         items: [
           { label: "Post a Job", href: "/services/recruitment#post-job" },
           { label: "View Jobs", href: "/jobs" },
@@ -46,7 +48,9 @@ const navItems = [
         title: "Education",
         icon: School,
         description: "Partnership programs",
+        href: "/services/education",
         items: [
+          { label: "Programs", href: "/services/education#courses" },
           { label: "View Partners", href: "/services/education#partners" },
           { label: "Become a Partner", href: "/contact" },
         ],
@@ -55,6 +59,7 @@ const navItems = [
         title: "Project Management",
         icon: Briefcase,
         description: "End-to-end project solutions",
+        href: "/services/project-management",
         items: [
           { label: "View Portfolio", href: "/projects" },
           { label: "Request Quote", href: "/contact" },
@@ -121,8 +126,11 @@ export function MainNav() {
                                 const Icon = section.icon || Briefcase;
                                 return (
                                   <div key={idx} className="group/section">
-                                    {/* Header with Icon */}
-                                    <div className="flex items-start gap-3 mb-4">
+                                    {/* Header with Icon - Now Clickable */}
+                                    <Link
+                                      href={section.href || "/services"}
+                                      className="flex items-start gap-3 mb-4 cursor-pointer"
+                                    >
                                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center group-hover/section:from-primary/20 group-hover/section:to-accent/20 transition-all duration-200 flex-shrink-0 shadow-sm">
                                         <Icon className="h-5 w-5 text-primary group-hover/section:scale-110 transition-transform duration-200" />
                                       </div>
@@ -134,7 +142,7 @@ export function MainNav() {
                                           {section.description}
                                         </p>
                                       </div>
-                                    </div>
+                                    </Link>
                                     {/* Menu Items */}
                                     <ul className="space-y-1 mt-4">
                                       {section.items.map((subItem) => (
@@ -191,9 +199,9 @@ export function MainNav() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               asChild
               className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
             >
@@ -202,8 +210,8 @@ export function MainNav() {
                 <span className="hidden xl:inline">Call</span>
               </Link>
             </Button>
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               asChild
               className="shadow-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
@@ -251,10 +259,14 @@ export function MainNav() {
                             const Icon = section.icon || Briefcase;
                             return (
                               <div key={section.title} className="space-y-2 mb-4">
-                                <div className="flex items-center gap-2 mt-4 mb-2">
+                                <Link
+                                  href={section.href || "/services"}
+                                  className="flex items-center gap-2 mt-4 mb-2 hover:text-primary transition-colors"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
                                   <Icon className="h-4 w-4 text-primary" />
                                   <h4 className="font-semibold text-sm text-foreground">{section.title}</h4>
-                                </div>
+                                </Link>
                                 {section.items.map((subItem) => (
                                   <Link
                                     key={subItem.label}

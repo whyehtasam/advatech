@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FileText, Calendar, Download, Bell } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import Image from "next/image";
 
 // Mock notices data
 const notices = [
@@ -61,13 +62,22 @@ export default function NoticesPage() {
       <MainNav />
       <main id="main-content" className="min-h-screen" aria-label="Notices and announcements">
         {/* Hero Section */}
-        <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop&auto=format&q=80"
+              alt="Notices Banner"
+              fill
+              className="object-cover blur-[2px]"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <BlurFade delay={0.1}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Notices & Announcements</span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Notices <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">&amp; Announcements</span></h1>
+              <p className="text-lg text-gray-200 max-w-2xl mx-auto">
                 Stay updated with the latest news, announcements, and important information.
               </p>
             </BlurFade>
