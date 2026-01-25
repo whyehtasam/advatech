@@ -1,4 +1,40 @@
-<!-- e7fbd80e-6119-4812-8dc4-c13a06605e85 a8f400ff-cf4b-45fc-8d89-13e32d226d24 -->
+---
+name: Fix UI Anomalies Across All Pages
+overview: ""
+todos:
+  - id: 825d214f-8ce3-46a6-aa29-33c04a7bac25
+    content: "Phase 1: Foundation Setup - Design tokens, typography (Inter font), component library (shadcn + Magic UI), dependencies. Verify in browser after completion."
+    status: completed
+  - id: fd65bd19-79f1-4f46-ba31-51c7663da15c
+    content: "Phase 2: Create mock data structure - TypeScript interfaces, mock data files, API integration points. Verify TypeScript compiles."
+    status: completed
+  - id: b68ed3c7-7471-4ccf-9689-2feb8a1f394f
+    content: "Phase 3: Build core components - Layout (MainNav, Footer, StickyCTA), Sections (Hero, ServicePills, etc.), Features (CourseCard, EnrollModal, etc.). Verify each component renders."
+    status: completed
+  - id: 219e9673-cc59-4120-940c-4d32e305d38d
+    content: "Phase 4.1: Implement Home Page with all sections. Verify in browser - sections, animations, responsive, accessibility."
+    status: completed
+  - id: 2db06978-e6cb-4a5b-a289-8133d8f5561d
+    content: "Phase 4.2: Implement Courses Listing Page - search, filters, grid, compare. Verify in browser before proceeding."
+    status: completed
+  - id: 93adc3f3-dd31-4a76-9459-f612b9bec7ad
+    content: "Phase 4.3: Implement Course Detail Page - tabs, accordion, enrollment. Verify in browser before proceeding."
+    status: completed
+  - id: 954afc5e-196d-4e90-8eaf-e3be6b76c3af
+    content: "Phase 4.4-4.5: Implement Services pages and detail pages. Verify in browser before proceeding."
+    status: completed
+  - id: a3c7ecd0-647b-480e-9ce2-ded2409d26df
+    content: "Phase 4.6-4.13: Implement Placements, Projects, Registration, About, Notices, Events, Gallery, Contact pages. Verify each in browser."
+    status: completed
+  - id: e116bf10-2def-45b3-a022-ae1a0725b371
+    content: "Phase 5: Enhancements & Polish - animations, accessibility, performance, responsive design. Final browser verification."
+    status: completed
+  - id: 8deb781d-bfd0-48e4-86d7-26391e12dbb4
+    content: "Phase 6: Create API integration layer with placeholder functions. Verify structure."
+    status: completed
+isProject: false
+---
+
 # Fix UI Anomalies Across All Pages
 
 ## Issues Found
@@ -98,16 +134,3 @@
 - [ ] All main tags have consistent id and aria-label
 - [ ] No console errors
 - [ ] Responsive design works on mobile/tablet/desktop
-
-### To-dos
-
-- [x] Phase 1: Foundation Setup - Design tokens, typography (Inter font), component library (shadcn + Magic UI), dependencies. Verify in browser after completion.
-- [x] Phase 2: Create mock data structure - TypeScript interfaces, mock data files, API integration points. Verify TypeScript compiles.
-- [x] Phase 3: Build core components - Layout (MainNav, Footer, StickyCTA), Sections (Hero, ServicePills, etc.), Features (CourseCard, EnrollModal, etc.). Verify each component renders.
-- [x] Phase 4.1: Implement Home Page with all sections. Verify in browser - sections, animations, responsive, accessibility.
-- [x] Phase 4.2: Implement Courses Listing Page - search, filters, grid, compare. Verify in browser before proceeding.
-- [x] Phase 4.3: Implement Course Detail Page - tabs, accordion, enrollment. Verify in browser before proceeding.
-- [x] Phase 4.4-4.5: Implement Services pages and detail pages. Verify in browser before proceeding.
-- [x] Phase 4.6-4.13: Implement Placements, Projects, Registration, About, Notices, Events, Gallery, Contact pages. Verify each in browser.
-- [x] Phase 5: Enhancements & Polish - animations, accessibility, performance, responsive design. Final browser verification.
-- [x] Phase 6: Create API integration layer with placeholder functions. Verify structure.

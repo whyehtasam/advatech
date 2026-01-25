@@ -97,6 +97,7 @@ export interface Placement {
   testimonial?: string;
   project?: string;
   verified: boolean;
+  studentImage?: string;
 }
 
 export interface Project {

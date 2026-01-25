@@ -31,9 +31,11 @@ export default function PlacementsPage() {
   }>({});
 
   // Calculate KPIs - Use actual totals, not filtered array
-  const totalPlacements = 1500; // Total students placed
-  const avgPackage = 360; // Average package in K (360K)
-  const topRecruitersCount = 5; // Top recruiters count
+  const totalPlacements = placements.length; // Total students placed
+  const avgPackage = placements.length > 0 
+    ? Math.round(placements.reduce((sum, p) => sum + p.package, 0) / placements.length / 1000)
+    : 360; // Average package in K
+  const topRecruitersCount = Array.from(new Set(placements.map((p) => p.company))).length; // Top recruiters count
   const topRecruiters = Array.from(new Set(placements.map((p) => p.company))).slice(0, 5);
 
   useEffect(() => {
@@ -177,6 +179,7 @@ export default function PlacementsPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Years</SelectItem>
+                          <SelectItem value="2026">2026</SelectItem>
                           <SelectItem value="2024">2024</SelectItem>
                           <SelectItem value="2023">2023</SelectItem>
                           <SelectItem value="2022">2022</SelectItem>
@@ -197,9 +200,10 @@ export default function PlacementsPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Courses</SelectItem>
-                          <SelectItem value="Revit Architecture Training">Revit Architecture</SelectItem>
+                          <SelectItem value="BIM Training">BIM Training</SelectItem>
                           <SelectItem value="AutoCAD Professional Training">AutoCAD Professional</SelectItem>
-                          <SelectItem value="BIM Project Management">BIM Project Management</SelectItem>
+                          <SelectItem value="Revit Architecture Training">Revit Architecture</SelectItem>
+                          <SelectItem value="Professional Training">Professional Training</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -276,13 +280,13 @@ export default function PlacementsPage() {
 
                 {/* Placements Grid */}
                 {loading ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {Array.from({ length: 6 }).map((_, index) => (
-                      <Skeleton key={index} className="h-64 rounded-xl" />
+                      <Skeleton key={index} className="h-[500px] rounded-xl" />
                     ))}
                   </div>
                 ) : filteredPlacements.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {filteredPlacements.map((placement, index) => (
                       <BlurFade key={placement.id} delay={0.1 + index * 0.05}>
                         <PlacementCard placement={placement} />
@@ -291,7 +295,8 @@ export default function PlacementsPage() {
                   </div>
                 ) : (
                   <div className="text-center py-16 text-muted-foreground">
-                    No placements found matching your criteria.
+                    <p className="text-lg font-medium mb-2">No placements found</p>
+                    <p className="text-sm">Try adjusting your search or filter criteria</p>
                   </div>
                 )}
               </div>
