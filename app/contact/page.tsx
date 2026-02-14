@@ -83,7 +83,7 @@ export default function ContactPage() {
                   <CardContent>
                     <p className="text-muted-foreground mb-3">Call us for immediate assistance</p>
                     <Button variant="outline" asChild>
-                      <Link href="tel:+919876543210">+91 98765 43210</Link>
+                      <Link href="tel:+919389260290">+919389260290</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                   <CardContent>
                     <p className="text-muted-foreground mb-3">Send us an email</p>
                     <Button variant="outline" asChild>
-                      <Link href="mailto:info@advatech.com">info@advatech.com</Link>
+                      <Link href="mailto:hr@advahr.com">hr@advahr.com</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                   <CardContent>
                     <p className="text-muted-foreground mb-3">Chat with us on WhatsApp</p>
                     <Button variant="outline" asChild>
-                      <Link href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                      <Link href="https://wa.me/919389260290" target="_blank" rel="noopener noreferrer">
                         Start Chat
                       </Link>
                     </Button>
@@ -214,11 +214,14 @@ export default function ContactPage() {
                         <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
                           <div className="font-semibold mb-1">Address</div>
-                          <p className="text-sm text-muted-foreground">
-                            Mumbai, Maharashtra, India
-                            <br />
-                            Near Business District
-                          </p>
+                          <Link
+                            href="https://www.google.com/maps/search/?api=1&query=F-98+B%2F1+2nd+floor+Thokar+no+4+Abufazal+Enclave+Okhla+New+Delhi+110025"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors block"
+                          >
+                            F-98, B/1, 2nd floor, Thokar no 4, Abufazal Enclave, Okhla, New Delhi, 110025
+                          </Link>
                         </div>
                       </div>
                     </div>

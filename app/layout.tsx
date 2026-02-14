@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SkipToContent } from "@/components/layout/SkipToContent";
+import { NoticesDock } from "@/components/layout/NoticesDock";
 import "./globals.css";
 
 const inter = Inter({
@@ -66,6 +67,7 @@ export default function RootLayout({
       >
         <SkipToContent />
         {children}
+        <NoticesDock />
         <Toaster />
       </body>
     </html>

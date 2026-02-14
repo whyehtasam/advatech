@@ -46,19 +46,26 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+919876543210" className="hover:text-foreground transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919389260290" className="hover:text-foreground transition-colors">
+                  +919389260290
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:info@advatech.com" className="hover:text-foreground transition-colors">
-                  info@advatech.com
+                <a href="mailto:hr@advahr.com" className="hover:text-foreground transition-colors">
+                  hr@advahr.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>Mumbai, Maharashtra, India</span>
+                <MapPin className="h-4 w-4 flex-shrink-0" />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=F-98+B%2F1+2nd+floor+Thokar+no+4+Abufazal+Enclave+Okhla+New+Delhi+110025"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  F-98, B/1, 2nd floor, Thokar no 4, Abufazal Enclave, Okhla, New Delhi, 110025
+                </a>
               </div>
             </div>
             <div className="flex gap-4">

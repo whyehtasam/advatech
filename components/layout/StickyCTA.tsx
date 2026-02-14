@@ -16,13 +16,13 @@ export function StickyCTA() {
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" asChild>
-              <Link href="tel:+919876543210">
-                <Phone className="h-4 w-4" />
+              <Link href="tel:+919389260290">
+                <Phone className="h-4 w-4 sticky-cta-phone" />
               </Link>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <Link href="https://wa.me/919876543210">
-                <MessageCircle className="h-4 w-4" />
+              <Link href="https://wa.me/919389260290">
+                <MessageCircle className="h-4 w-4 sticky-cta-message" />
               </Link>
             </Button>
             <Button size="sm" asChild>

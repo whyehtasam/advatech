@@ -12,50 +12,16 @@ import { FileText, Calendar, Download, Bell } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import Image from "next/image";
 
-// Mock notices data
-const notices = [
-  {
-    id: "1",
-    title: "Admission Open for Revit Architecture Training - Batch 15",
-    description: "Admissions are now open for our comprehensive Revit Architecture Training program. Limited seats available.",
-    category: "admissions",
-    date: "2024-03-01",
-    link: "/notices/1",
-  },
-  {
-    id: "2",
-    title: "Placement Drive - March 2024",
-    description: "Exclusive placement drive for our students. Top companies are hiring BIM and CAD professionals.",
-    category: "placements",
-    date: "2024-02-28",
-    link: "/notices/2",
-  },
-  {
-    id: "3",
-    title: "New Course: BIM Project Management",
-    description: "We're excited to announce our new BIM Project Management course. Enroll now!",
-    category: "courses",
-    date: "2024-02-25",
-    link: "/notices/3",
-  },
-  {
-    id: "4",
-    title: "Scholarship Program 2024",
-    description: "Apply for our scholarship program. Financial assistance available for deserving students.",
-    category: "admissions",
-    date: "2024-02-20",
-    link: "/notices/4",
-  },
-];
-
-const categories = ["all", "admissions", "placements", "courses"];
+import { notices, categories } from "@/data/notices";
 
 export default function NoticesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const filteredNotices = notices.filter(
-    (notice) => selectedCategory === "all" || notice.category === selectedCategory
-  );
+  const filteredNotices = notices
+    .filter(
+      (notice) => selectedCategory === "all" || notice.category === selectedCategory
+    )
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <>

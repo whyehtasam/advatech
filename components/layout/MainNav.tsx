@@ -205,7 +205,7 @@ export function MainNav() {
               asChild
               className="border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-200"
             >
-              <Link href="tel:+919876543210" className="flex items-center gap-2">
+              <Link href="tel:+919389260290" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="hidden xl:inline">Call</span>
               </Link>
@@ -294,13 +294,13 @@ export function MainNav() {
                   </Button>
                   <div className="grid grid-cols-2 gap-2">
                     <Button variant="outline" size="sm" className="w-full" asChild>
-                      <Link href="tel:+919876543210" onClick={() => setMobileMenuOpen(false)}>
+                      <Link href="tel:+919389260290" onClick={() => setMobileMenuOpen(false)}>
                         <Phone className="h-4 w-4 mr-2" />
                         Call
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" className="w-full" asChild>
-                      <Link href="https://wa.me/919876543210" onClick={() => setMobileMenuOpen(false)}>
+                      <Link href="https://wa.me/919389260290" onClick={() => setMobileMenuOpen(false)}>
                         <MessageCircle className="h-4 w-4 mr-2" />
                         WhatsApp
                       </Link>

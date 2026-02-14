@@ -252,6 +252,40 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Notices dock: bell ringing animation (pivot from top) */
+@keyframes bell-ring {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20%, 40% { transform: rotate(-12deg); }
+  50%, 70% { transform: rotate(8deg); }
+  60%, 80% { transform: rotate(-6deg); }
+  90% { transform: rotate(2deg); }
+}
+.notices-dock-bell {
+  transform-origin: 50% 0%;
+  animation: bell-ring 1.5s ease-in-out infinite;
+}
+
+/* Bottom bar: phone — gentle pulse (ringing) */
+@keyframes phone-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.12); opacity: 0.9; }
+}
+.sticky-cta-phone {
+  animation: phone-pulse 1.4s ease-in-out infinite;
+}
+
+/* Bottom bar: message — soft bounce (new message) */
+@keyframes message-bounce {
+  0%, 100% { transform: scale(1); }
+  35% { transform: scale(1.15); }
+  50% { transform: scale(0.98); }
+  70% { transform: scale(1.06); }
+}
+.sticky-cta-message {
+  animation: message-bounce 2s ease-in-out infinite;
+}
+
 /* Typography Scale Refinement */
 h1, .h1 {
   font-size: 3rem; /* 48px */

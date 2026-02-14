@@ -338,14 +338,14 @@ export function ServiceDetailContent({ service }: { service: Service }) {
                         <div className="space-y-2 text-sm">
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <span>📞</span>
-                            <Link href="tel:+919876543210" className="hover:text-primary">
-                              +91 98765 43210
+                            <Link href="tel:+919389260290" className="hover:text-primary">
+                              +919389260290
                             </Link>
                           </div>
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <span>✉️</span>
-                            <Link href="mailto:info@advatech.com" className="hover:text-primary">
-                              info@advatech.com
+                            <Link href="mailto:hr@advahr.com" className="hover:text-primary">
+                              hr@advahr.com
                             </Link>
                           </div>
                         </div>
